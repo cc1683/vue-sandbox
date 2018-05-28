@@ -53,7 +53,6 @@ var app = new Vue({
 3. Loop
 ```html
 <ol>
-
     <li v-for="list in lists">{{list.id}} : {{list.name}}</li>
 </ol>
 ```
