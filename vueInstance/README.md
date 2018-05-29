@@ -53,6 +53,8 @@ vm.$el === document.getElementById("app") = true
 
 ### [Instance Life Cycle Hooks] ###
 1. created
+---
+**created()** is called much earlier than **mounted()**
 ```javascript
 var app = new Vue({
     el: '#app',
@@ -62,4 +64,10 @@ var app = new Vue({
     }
 })
 ```
+2. mounted
+---
+**mounted()** is called every time the component is loaded to the **el**
+#### Vue Instance Lifecycle ####
+![Vue Instance Lifecycle](../img/lifecycle.png)
+[Sources](https://vuejs.org/images/lifecycle.png)
 

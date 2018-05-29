@@ -60,8 +60,11 @@ var app = new Vue({
         },     
     },
     created: function() {
-        console.log('I run after an instance was created')
-    }
+        console.log('I am created hook. I run after an instance was created')
+    },
+    beforeCreate: function() {
+        console.log('I am beforeCreate hook. I run before created hook')
+    } 
 })
 
 /* ==================================== */
