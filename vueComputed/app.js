@@ -20,7 +20,8 @@ var vm = new Vue({
             return this.message.split('').reverse().join('');
         },
         searchTeamList() {
-            let filterCap = new RegExp(this.searchTeam, 'i')
+            // let filterCap = this.searchTeam
+            let filterCap = new RegExp(this.searchTeam, 'i') // read capital letter
             return this.teams.filter(team => team.match(filterCap))
         }
     }

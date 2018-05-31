@@ -1,5 +1,5 @@
-## The Vue Instance
----
+# The Vue Instance #
+
 Every Vue application start by creating a new **Vue Instance** aka **root Vue Instance** with the **Vue** function.
 ```javascript
 var vm = new Vue({
@@ -9,7 +9,7 @@ var vm = new Vue({
 ```
 All components are also **Vue Instance**.
 
-### [Data and Methods] ###
+### Data and Methods ###
 When a new Vue instance is created, it add all the properties found in the data object to Vue's reactivity system.
 ```javascript
 var data = {
@@ -51,7 +51,7 @@ vm.$data === data = true
 vm.$el === document.getElementById("app") = true
 ```
 
-### [Instance Life Cycle Hooks] ###
+### Instance Life Cycle Hooks ###
 1. created
 ---
 **created()** is called much earlier than **mounted()**

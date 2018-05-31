@@ -1,5 +1,4 @@
 # Vue Introduction #
-
 ## Installation ##
 ### [ CDN ] ### 
 ```html

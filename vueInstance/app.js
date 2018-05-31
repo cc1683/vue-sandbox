@@ -19,7 +19,7 @@ Object.freeze(fname)
 var app = new Vue({
     el: '#app',
     data: {
-        welcome: 'Vue Home',
+        welcome: 'Vue Instance',
         button: 'btn-success',
         btnMessage: 'Click me',
         nameObj,
