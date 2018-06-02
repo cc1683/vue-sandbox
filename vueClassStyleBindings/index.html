@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="../css/bootstrap-material-design.min.css">
+    <title>Vue Class and Style Bindings</title>
+</head>
+<body>
+    <div id="app">
+        <div class="container">
+            <div class="row">
+                <div class="col text-center p-3 m-3">
+                    <h1>Vue Class and Style Bindings</h1>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                <div class="col-6">
+                    <div :class="color">
+                        <h5>Class Binding</h5>
+                        <button class="btn btn-raised btn-warning" @click="">Click</button>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div :style="styleObject">
+                        <h5>Style Binding</h5>
+                        <button class="btn btn-raised btn-warning" @click="">Click</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <style>
+        .color-content {
+            margin: 1rem;
+            padding: 80px;
+            background-color: #efefef;
+            color: #333;
+            text-align: center;
+        }
+    </style>
+    <script src="../js/vue.js"></script>
+    <script src="app.js"></script>
+    
+</body>
+</html>
