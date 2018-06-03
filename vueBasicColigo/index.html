@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Vue Basic From Coligo</title>
+    <link rel="stylesheet" href="../css/bootstrap-material-design.min.css">
+</head>
+<body>
+    <div id="vue-instance">
+        <div class="container">
+            <div class="row">
+                <div class="col text-center p-3 m-3">
+                    <h1>Vue Basic From Coligo</h1>
+                </div>
+            </div>
+        </div>
+
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col text-center m-3 p-3">
+                    <h3>2 ways data-binding with v-model</h3>
+                    <h5>{{ greeting }} {{ visitor }}!</h5>
+                    <label for="visitor-name">Enter your name here: </label>
+                    <input type="text" name="visitor-name" v-model="visitor">
+                </div>
+            </div>
+        </div>
+
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col text-center m-3 p-3">
+                    <h3>Handling events with v-on</h3>
+
+                    <!-- click event -->
+                    <label for="hi-name">Enter your name here: </label>
+                    <input type="text" name="hi-name" v-model="alertName">
+                    <button class="btn btn-raised btn-primary" @click="callName">Alert name</button>
+
+                    <!-- mouseenter and mouseleave event -->
+                    <div :class="mouseOverObject">
+                        <button class="btn btn-raised btn-info" @mouseenter="changeStyle" @mouseleave="changeStyle">Hover Over Me</button>
+                    </div>
+                </div>
+
+                <div class="col text-center m-3 p-3">
+                    <h3>Conditional Rendering with v-if</h3>
+                    <div v-if="loginStatus == 'false'">
+                        <h5>Welcome to Coligo!</h5>
+                        <button class="btn btn-raised primary" @click="login">Login</button>
+                    </div>
+                    <div v-else>
+                        <!-- bootstrap material form -->
+                        <form>
+                            <div class="form-group">
+                                <label for="useremail">Email address</label>
+                                <input type="email" class="form-control" id="useremail" aria-describedby="emailHelp" placeholder="Enter email">
+                                <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                            </div>
+                            <div class="form-group">
+                                <label for="userpassword">Password</label>
+                                <input type="password" class="form-control" id="userpassword" placeholder="Password">
+                            </div>
+                            <button class="btn btn-primary">Login</button>
+                            <button class="btn btn-warning" @click="loginStatus = 'false'">Back</button>
+                        </form>
+                    </div>
+                </div>
+
+                <div class="col text-center m-3 p-3">
+                    <h3>Rendering list in Vue with v-for</h3>
+                    <p>Our store: </p>
+                    <ul>
+                        <li v-for="item in inventory">Model: {{ item.name }} || Price: {{ item.price }}</li>
+                    </ul>
+                    <p>Access the index in the array</p>
+                    <ul>
+                        <li v-for="(item, index) in inventory">{{ index+1 }} -- {{ item.name }} -- ${{ item.price }}</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col text-center p-3 m-3">
+                    <h5>Computed Properties</h5>
+                    <!-- <p>Let see an example of methods</p>
+                    <p>let assign 'value' is equal to 10</p>
+                    <div>
+                        <p>A: {{ a }}</p>
+                        <p>B: {{ b }}</p>
+                        <button class="btn btn-success" @click="a++">Add to A</button>
+                        <button class="btn btn-info" @click="b++">Add to B</button>
+
+                        <p>{{ valueAddA() }}</p>
+                        <p>{{ valueAddB() }}</p>
+                    </div> -->
+
+                    <p>let assign 'value' is equal to 10</p>
+                    <div>
+                        <p>A: {{ a }}</p>
+                        <p>B: {{ b }}</p>
+                        <button class="btn btn-success" @click="a++">Add to A</button>
+                        <button class="btn btn-info" @click="b++">Add to B</button>
+                        
+                        <!-- computed properties -->
+                        <p>A + value: {{ valueAddA }}</p>
+                        <p>B + value: {{ valueAddB }}</p>
+                    </div>
+                </div>
+
+                <div class="col text-center p-3 m-3">
+                    <h5>Wrapping up - a simple number guessing game</h5>
+                    <label for="guess">Guess a number between 1 - 10: </label>
+                    <input type="text" name="guess" v-model="guessNum">
+                    <p>{{ result }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <style>
+        .mouseover-container {
+            margin: 1rem;
+            padding: 40px;
+            background-color: #efefef;
+            justify-content: center;
+        }
+        .new-mouseover-container {
+            margin: 1rem;
+            padding: 40px;
+            background-color: #efefef;
+            border: 1px solid #333;
+            border-radius: 25px;
+            justify-content: center;
+        }
+        ul {
+            list-style: none;
+        }
+    </style>
+
+    <script src="../js/vue.js"></script>
+    <script>
+        // create a new Vue Instance
+        var vm = new Vue({
+            el: '#vue-instance',
+            data: {
+                greeting: 'Hello',
+                visitor: '',
+                alertName: '',
+                mouseOverObject: 'mouseover-container',
+                loginStatus: 'false',
+                inventory: [
+                    {name: 'MacBook Air', price: 1000},
+                    {name: 'MacBook Pro', price: 2000},
+                    {name: 'MacBook', price: 1200},
+                    {name: 'Acer Aspire One', price: 750},
+                ],
+                a: 0,
+                b: 0,
+                value: 10,
+                guessNum: '',
+                randomNum: '',
+            },
+            methods: {
+                callName() {
+                    alert('Hi! '+this.alertName);
+                },
+                changeStyle() {
+                    let current = this.mouseOverObject
+                    if(current === 'mouseover-container') {
+                        this.mouseOverObject = 'new-mouseover-container'
+                    }else {
+                        this.mouseOverObject = 'mouseover-container'
+                    }
+                },
+                login() {
+                    this.loginStatus = true
+                },
+                // valueAddA() {
+                //     console.log('I show when valueAddA is called')
+                //     return this.a + this.value
+                // },
+                // valueAddB() {
+                //     console.log('I show when valueAddB is called')
+                //     return this.b + this.value
+                // }
+                // however, both of them show when either one of the function is called
+                getRandomNum(min, max) {
+                    return Math.floor(Math.random() * (max - min + 1)) + min;
+                }
+            },
+            computed: {
+                valueAddA() {
+                    console.log('Computed - I show when valueAddA is called')
+                    return this.a + this.value
+                },
+                valueAddB() {
+                    console.log('Computed - I show when valueAddB is called')
+                    return this.b + this.value
+                },
+                result() {
+                    if(this.guessNum) {
+                        this.randomNum = this.getRandomNum(1, 10)
+                        if(this.guessNum == this.randomNum) {
+                            return 'You got in right'
+                        }else {
+                            return 'Better luck next time'
+                        }     
+                    }else {
+                        return 'Please enter your lucky number'
+                    }
+                }
+            }
+        })
+    </script>
+</body>
+</html>
