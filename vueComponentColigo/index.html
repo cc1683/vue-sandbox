@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Vue Component From Coligo</title>
+    <link rel="stylesheet" href="../css/bootstrap-material-design.min.css">
+</head>
+<body>
+    <div id="app">
+        <div class="container">
+            <div class="row">
+                <div class="col text-center p-3 m-3">
+                    <h1>Vue Component From Coligo</h1>
+                </div>
+            </div>
+        </div>
+
+        <!-- wrapper -->
+        <div class="container">
+            <div class="row">
+                <div class="wrapper col text-center p-3 m-3">
+                    <greeting-component></greeting-component>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="../js/vue.js"></script>
+    <script src="app.js"></script>
+    <style>
+        /* wrapper style */
+        .wrapper {
+            padding: 0.25rem;
+            border: 2px solid #333;
+        }
+    </style>
+    
+</body>
+</html>
