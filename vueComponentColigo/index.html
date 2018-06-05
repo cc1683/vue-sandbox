@@ -20,8 +20,16 @@
         <!-- wrapper -->
         <div class="container">
             <div class="row">
-                <div class="wrapper col text-center p-3 m-3">
+                <div class="wrapper col-4 text-center p-3 m-3">
                     <greeting-component></greeting-component>
+                </div>
+                <div class="wrapper col-4 text-center p-3 m-3">
+                    <h5>use template tag for complex component</h5>
+                    <template id="greeting-template">
+                        <h5>Welcome Visitor</h5>
+                        <button class="btn">Login</button>
+                        <button class="btn">Signup</button>
+                    </template>
                 </div>
             </div>
         </div>

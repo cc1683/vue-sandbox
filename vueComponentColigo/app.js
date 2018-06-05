@@ -2,8 +2,14 @@
 Vue.component('greeting-component', {
     template:
         `
-            <h1>Welcome to Vue Component</h1>
+            <h5>Welcome to Vue Component</h5>
         `
+});
+
+// use html <template> tag to create component
+
+Vue.component('greeting-template', {
+    template: '#greeting-template'
 })
 
 
