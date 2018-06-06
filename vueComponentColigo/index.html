@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Vue Component From Coligo</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
     <link rel="stylesheet" href="../css/bootstrap-material-design.min.css">
 </head>
 <body>
@@ -20,28 +21,80 @@
         <!-- wrapper -->
         <div class="container">
             <div class="row">
-                <div class="wrapper col-4 text-center p-3 m-3">
+                <div class="wrapper col text-center p-3 m-3">
                     <greeting-component></greeting-component>
                 </div>
-                <div class="wrapper col-4 text-center p-3 m-3">
-                    <h5>use template tag for complex component</h5>
+                <div class="wrapper col text-center p-3 m-3">
+                    <h5>Use template tag for complex component</h5>
                     <template id="greeting-template">
                         <h5>Welcome Visitor</h5>
                         <button class="btn">Login</button>
                         <button class="btn">Signup</button>
                     </template>
                 </div>
+                <div class="wrapper col text-center p-3 m-3">
+                    <h5>Passing data to component with Props</h5>
+                    <child-component name="luis"></child-component>
+                    <h5 class="mt-3">Pass array with Props</h5>
+                    <array-component v-for="(product, index) in products" :product="product" :key="product.index"></array-component>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                <div class="wrapper col-8 text-center justify-content-center p-3 m-3">
+                    <h5>Simple Reddit-like Comment System</h5>
+                    <reddit-post v-for="(post, index) in posts" :post="post" :key="post.index"></reddit-post>
+                    <label for="comment">Comment: </label>
+                    <input type="text" name="comment" @keyup.enter="postComment" v-model="comment">
+                    <button class="btn btn-raised btn-info" @click="postComment">Post</button>
+                    <button class="btn btn-raised btn-warning" @click="removeComment" :disabled="minPost">Delete</button>
+                </div>
             </div>
         </div>
     </div>
-    
+
     <script src="../js/vue.js"></script>
+    <script src="https://unpkg.com/vue-toasted"></script>
     <script src="app.js"></script>
+   
     <style>
         /* wrapper style */
         .wrapper {
             padding: 0.25rem;
             border: 2px solid #333;
+        }
+        li {
+            list-style: none;
+        }
+
+        /* styling from coligo*/
+        a {
+            padding: 20px;
+        }
+
+        .list-group-item :first-child {
+            margin: 0;
+        }
+
+        span.label {
+            padding: 12px !important;
+        }
+
+        /* some simple transitions to make the upvote and downvote
+        buttons fade in as a visual cue for the user */
+
+        .fas {
+            opacity: 1;
+            transition: opacity .25s ease-in-out;
+            -moz-transition: opacity .25s ease-in-out;
+            -webkit-transition: opacity .25s ease-in-out;
+        }
+
+        .fas:hover {
+            opacity: 0.75;
+            cursor: pointer;
         }
     </style>
     
