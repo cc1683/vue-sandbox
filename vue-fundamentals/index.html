@@ -61,7 +61,7 @@
 
                 <div class="component-wrapper col text-left p-3 m-3">
                     <h4>More example of Vue Component</h4>
-                    <name-list v-for="name in names" :name="name"></name-list>
+                    <name-list v-for="name in names" :name="name" :key="name.id"></name-list>
                 </div>   
             </div>
         </div>
